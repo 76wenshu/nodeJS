@@ -5,12 +5,17 @@ var fs = require("fs")
 //第一个参数是文件路径
 //第二个参数是回调函数（error，data）
 //当数据返回成功的时候 error是null data返回成功数据
-//当数据返回失败的时候 error是错误对象 data返回null
+//当数据返回失败的时候 error是错误对象 data返回underfined
 
-fs.readFile("./nodeFile.txt",function(error,data){
-    console.log(error)//null
-    //文件中都是0和1 node 将二进制转化成16进制的字符
-    console.log(data)//<Buffer 09 68 65 6c 6c 6f 20 6e 6f 64 65 6a 73>
-    //用toString（）就能将16进制数字转化成正常文件
-    console.log(data.toString())
+fs.readFile("./data/nodeFile.txt",function(error,data){
+    //简单的数据处理
+    if(error){
+        console.log(error)//null
+        return
+    }else{
+        //文件中都是0和1 node 将二进制转化成16进制的字符
+        console.log(data)//<Buffer 09 68 65 6c 6c 6f 20 6e 6f 64 65 6a 73>
+        //用toString（）就能将16进制数字转化成正常文件
+        console.log(data.toString())
+    }
 })
