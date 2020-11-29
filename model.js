@@ -4,3 +4,6 @@ console.log("model start")
 const model = require("./first")
 console.log(model)
 console.log("model end")
+//ip地址和端口号
+//ip 地址是计算机的唯一标识，
+//端口号计算中是软件应用的唯一标识
