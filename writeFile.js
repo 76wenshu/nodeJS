@@ -32,7 +32,8 @@ server.on("request",function(request,response){
     //根据不同的请求路径来获取不懂得对象
     var url=request.url;
     if(url==="/"){
-        response.end("index page")
+        response.setHeader('Content-Type', 'text/plain; charset=utf-8');
+        response.end("index page 世界")
     }
     if(url==="/login"){
         response.end("log in")
