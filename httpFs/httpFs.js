@@ -8,7 +8,7 @@ sever.on('request',(request,response)=>{
             if(err){
                 console.log('读取文件失败了')
             }else{
-                response.setHeader('Content-Type',"text/html;chaeset = utf-8")
+                response.setHeader('Content-Type',"text/html;charset = utf-8")
                 response.end(data)
             }
         });
