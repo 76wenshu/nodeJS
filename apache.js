@@ -6,11 +6,11 @@ server.on('request',(request,response)=>{
     let url;
     const routeDir = './www'
     if(request.url === "/"){
-         url = '/index.html'
+         url = '/index.html' 
     }else{
          url = request.url;
     }
-    
+
     fs.readFile(routeDir + url,(err,data)=>{
         if(err){
             console.log(routeDir + '/html404.html')
@@ -21,7 +21,7 @@ server.on('request',(request,response)=>{
                 response.end(data)
             })
         }else{
-            response.setHeader('Content-Type', 'text/plain; charset=utf-8');
+            response.setHeader('Content-Type', 'text/plain; charset=utf-8'); 
             response.end(data)
         }
     })
