@@ -7,12 +7,30 @@
 // 前后端融汇贯通，将就是为所欲为，集互联网于大成者，完成软件的得心应手的开发，转战业务
 const http = require('http')
 const fs = require('fs')
+const Url = require('url')
+const temeplates  = require('art-template')
+
+
+
+const comments = [{
+    name:"76wenshu",
+    message:'zhgebucuo',
+    dateTime:'2020-12-05'
+},{
+    name:"76wenshu",
+    message:'zhgebucuo',
+    dateTime:'2020-12-05'
+}]
 
 http
     .createServer((request,respose)=>{
+        const queryObj = Url.parse(request.url,true)
+        console.log(queryObj)
         // respose.end('hello')
-        const url = request.url
-        if(url === '/'){
+        // const pathName = request.pathName
+        //获取单独不包含查询字符串的路径部分
+        const pathName = queryObj.pathname
+        if(pathName === '/'){
             fs.readFile('./views/index.html',(err,data)=>{
                 if(err){
                     fs.readFile('./views/err404.html',(err,data)=>{
@@ -23,10 +41,13 @@ http
                         }
                     })
                 }else{
-                    respose.end(data)
+                    const htmlStr = temeplates.render(data.toString(),{
+                        comment:comments
+                    })
+                    respose.end(htmlStr)
                 }
             })
-        }else if(url ==='/post'){
+        }else if(pathName ==='/post'){
             fs.readFile('./views/post.html',(err,data)=>{
                 if(err){
                     fs.readFile('./views/err404.html',(err,data)=>{
@@ -41,16 +62,25 @@ http
                 }
             })
 
-        }else if(url.indexOf('/public/')===0){
+        }else if(pathName.indexOf('/public/')===0){
             // '/'是根路径的 意思
-            console.log(url)
-            fs.readFile('./' + url,(err,data) =>{
+            console.log(pathName)
+            fs.readFile('./' + pathName,(err,data) =>{
                 if(err){
                     console.log(' 404 No Found.')
                 }else{
                     respose.end(data)
                 }
             })
+        }else if(pathName ==='/pinglun'){
+            console.log(queryObj.query)
+            respose.end(JSON.stringify(queryObj.query))
+            const comments = queryObj.query;
+            comments.dataTime = '2020-12-05';
+            comment.push(comments)
+            //数据已经存储好（不是持久化数据）
+            //重定向到首页 
+            respose.setHeader() 
         }else{
             //其他的处理成404 都是可以处理的 
             fs.readFile('./views/err404.html',(err,data)=>{
@@ -61,7 +91,6 @@ http
                 }
             })
         }
-
     })
     .listen(3000, ()=>{
         console.log(' run server ...')
