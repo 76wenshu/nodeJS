@@ -11,8 +11,8 @@ const Url = require('url')
 const temeplates  = require('art-template')
 
 
-
-const comments = [{
+//展示数据
+let comments = [{
     name:"76wenshu",
     message:'zhgebucuo',
     dateTime:'2020-12-05'
@@ -74,13 +74,16 @@ http
             })
         }else if(pathName ==='/pinglun'){
             console.log(queryObj.query)
-            respose.end(JSON.stringify(queryObj.query))
-            const comments = queryObj.query;
-            comments.dataTime = '2020-12-05';
-            comment.push(comments)
+            // respose.end(JSON.stringify(queryObj.query))
+            const comment = queryObj.query;
+            comment.dataTime = '2020-12-05';
+            comments.push(comment)
             //数据已经存储好（不是持久化数据）
             //重定向到首页 
-            respose.setHeader() 
+            //重定向那个code就是302
+            respose.statusCode=302
+            respose.setHeader('Location','/') 
+            respose.end()
         }else{
             //其他的处理成404 都是可以处理的 
             fs.readFile('./views/err404.html',(err,data)=>{
