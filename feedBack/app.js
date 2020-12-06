@@ -5,9 +5,12 @@
 // 那些资源是否让用户访问，我可以通过代码非常灵活的进行，进行控制。
 
 // 前后端融汇贯通，将就是为所欲为，集互联网于大成者，完成软件的得心应手的开发，转战业务
+
 const http = require('http')
 const fs = require('fs')
 const Url = require('url')
+
+// 在使用中我们使用模板引擎 
 const temeplates  = require('art-template')
 
 
@@ -80,7 +83,7 @@ http
             comments.push(comment)
             //数据已经存储好（不是持久化数据）
             //重定向到首页 
-            //重定向那个code就是302
+            //重定向那个code就是302(暂时重定向)
             respose.statusCode=302
             respose.setHeader('Location','/') 
             respose.end()
@@ -98,3 +101,6 @@ http
     .listen(3000, ()=>{
         console.log(' run server ...')
     })
+
+    // Node 不是特别 适合入门服务端 只有基础，太灵活的（js）的问题
+    // Java PHP 就坡度不陡  
