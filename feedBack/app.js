@@ -102,5 +102,9 @@ http
         console.log(' run server ...')
     })
 
+
     // Node 不是特别 适合入门服务端 只有基础，太灵活的（js）的问题
+    
     // Java PHP 就坡度不陡  
+
+    // node js 自定义的函数能够快速的进行
