@@ -10,6 +10,7 @@ const express = require("express")
 //起服务 hrrp.createdServer()
 var app = express();
 // 请求静态资源
+// url 只是一个标识（也不是文件的静态查找路径）
 // 当省用第一个参数的时候在路由中就不用添加public来进行使用，加上静态资源的路径名反而是不可以
 
 // http://127.0.0.1:3000/public/text/text
