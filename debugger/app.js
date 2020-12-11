@@ -1,6 +1,7 @@
 
 //  launch 中的在项目没有运行的时候进行调试
 // 相当于本地调试
+// 调试vscode 中的git提交
 // class Person{
         
 //     constructor(firstName,lastName){
