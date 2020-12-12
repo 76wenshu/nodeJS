@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "express/",
+			"problemMatcher": [],
+			"label": "npm: install - express",
+			"detail": "install dependencies from package"
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"path": "express/",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "npm: test - express",
+			"detail": "echo \"Error: no test specified\" && exit 1"
+		}
+	]
+}

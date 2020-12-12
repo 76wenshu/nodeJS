@@ -1,3 +1,4 @@
+// process id 就是node的进程ID
 
 //  launch 中的在项目没有运行的时候进行调试
 // 相当于本地调试
@@ -20,18 +21,18 @@
 // console.log(name)
 
 // 相当于在有的web服务是不能够停止的还能再运行中调试，所以只能使用attch进行调试
-// const http = require("http");
+const http = require("http");
 
-// http.createServer((request,response)=>{
-//     let  name;
-//     if(request.url=== '/'){
-//          name = "76文书"
-//         console.log(name)
-//     }
-//     response.setHeader("Content-Type","text/plain;charset=utf-8");
-//     response.end(name)
-// }).listen(3000,()=>{
-//     console.log(" run server 3000 ...")
-// })
+http.createServer((request,response)=>{
+    let  name;
+    if(request.url=== '/'){
+         name = "76文书"
+        console.log(name)
+    }
+    response.setHeader("Content-Type","text/plain;charset=utf-8");
+    response.end(name)
+}).listen(3000,()=>{
+    console.log(" run server 3000 ...")
+})
 
 
