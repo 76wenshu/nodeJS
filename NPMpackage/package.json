@@ -1,0 +1,14 @@
+{
+  "name": "wenshu",
+  "version": "1.0.0",
+  "description": "common Function",
+  "main": "./hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "76wenshu"
+  ],
+  "author": "76wenshu",
+  "license": "MIT"
+}
